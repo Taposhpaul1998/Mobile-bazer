@@ -1,6 +1,31 @@
-body{
-    background-color: #7fffd43d;
+body {
+    background-color: #09cae936;
+}
+/* search bar */
+h2.header-title {
+    font-size: 45px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 .search-bar{
     width: 650px;
 }
+input#search-fild {
+    padding: 15px;
+}
+
+button#button-addon2 {
+    padding: 15px 25px;
+}
+/* phone details */
+.phone_details {
+    width: 390px;
+    background: #f7c6c60a;
+}
+
+/* phone result */
+.card {
+    background-color: #2e2e2e14;
+    box-shadow: 1px 6px 14px #00000073;
+}
+
