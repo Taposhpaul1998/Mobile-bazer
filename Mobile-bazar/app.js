@@ -1,3 +1,7 @@
+// spinner 
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+}
 // search phone 
 const searchPhone = () => {
     const searchFild = document.getElementById('search-fild');
@@ -5,7 +9,14 @@ const searchPhone = () => {
 
     // clear data 
     searchFild.value = '';
-
+    // clear details
+    const detailsPhone = document.getElementById('details');
+    detailsPhone.textContent = '';
+    // clear phone result 
+    const phoneResultFild = document.getElementById('phone-result');
+    phoneResultFild.textContent = '';
+    // display spinner
+    toggleSpinner('block');
     // search phone
     if (searchText == '') {
         const error = document.getElementById('phone_hendel');
@@ -48,10 +59,12 @@ const phoneResult = phones => {
                         <button onclick="detailsButton('${phone.slug}')" type="button" class="btn btn-primary">Details</button>
                     </div>
                 </div>
+                
         `;
             phoneResultFild.appendChild(div);
 
         });
+        toggleSpinner('none');
     }
 }
 
@@ -84,7 +97,7 @@ const phoneDetails = phoneDetails => {
                     <div class="card-body">
                         <h5 class="card-title">Brand: ${phoneDetails.brand} </h5>
                         <h5  class="card-title">Name: ${phoneDetails.name}</h5>
-                        <h5 class="card-title">Release Date: ${phoneDetails?.releaseDate !== "" ? phoneDetails.releaseDate : "No releaseDate"}</h5>
+                        <h5 class="card-title">Release Date: ${phoneDetails?.releaseDate !== "" ? phoneDetails.releaseDate : "No Release Date"}</h5>
                         <h5  class="card-title">Main Features: 
                         <ul>
                         <li><p>ChipSet: ${phoneDetails.mainFeatures.chipSet}</p></li>
