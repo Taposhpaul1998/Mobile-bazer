@@ -21,9 +21,10 @@ const searchPhone = () => {
 // phone search result 
 
 const phoneResult = phones => {
+    const data = phones.slice(0, 20)
     const phoneResultFild = document.getElementById('phone-result');
     phoneResultFild.textContent = '';
-    phones.forEach(phone => {
+    data.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -39,6 +40,7 @@ const phoneResult = phones => {
                 </div>
         `;
         phoneResultFild.appendChild(div);
+        console.log(data);
     });
 }
 
@@ -62,6 +64,7 @@ const phoneDetails = phoneDetails => {
     detailsPhone.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
+
     div.innerHTML = `
     
                     <div class="modal-header">
@@ -71,6 +74,7 @@ const phoneDetails = phoneDetails => {
                     <div class="card-body">
                         <h5 class="card-title">Brand: ${phoneDetails.brand} </h5>
                         <h5  class="card-title">Name: ${phoneDetails.name}</h5>
+                        <h5 class="card-title">releaseDate: ${phoneDetails.releaseDate}</h5>
                         <h5  class="card-title">Main Features: 
                         <ul>
                         <li><p>ChipSet: ${phoneDetails.mainFeatures.chipSet}</p></li>
@@ -90,7 +94,7 @@ const phoneDetails = phoneDetails => {
                         
                         </ul>
                         </h5>
-                       <h5 class="card-title">releaseDate: ${phoneDetails.releaseDate}</h5>
+                       
 
                     </div>
                 

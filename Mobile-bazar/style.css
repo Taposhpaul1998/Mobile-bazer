@@ -29,3 +29,7 @@ button#button-addon2 {
     box-shadow: 1px 6px 14px #00000073;
 }
 
+/* phone details  */
+ul li p {
+    font-size: 15px;
+}
