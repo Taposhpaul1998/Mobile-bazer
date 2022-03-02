@@ -8,7 +8,8 @@ const searchPhone = () => {
 
     // search phone
     if (searchText == '') {
-        alert('place type carent name')
+        const error = document.getElementById('phone_hendel');
+        error.style.display = "block";
     }
     else {
         // load data 
@@ -21,13 +22,22 @@ const searchPhone = () => {
 // phone search result 
 
 const phoneResult = phones => {
+    const searchFild = document.getElementById('search-fild');
+    const searchText = searchFild.value;
+
     const data = phones.slice(0, 20)
     const phoneResultFild = document.getElementById('phone-result');
     phoneResultFild.textContent = '';
-    data.forEach(phone => {
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = `
+    // error Headers
+    if (searchText == phones) {
+        const error = document.getElementById('phone_error');
+        error.style.display = "block";
+    }
+    else {
+        data.forEach(phone => {
+            const div = document.createElement('div');
+            div.classList.add('col');
+            div.innerHTML = `
         <div class="card h-80">
                     <img src="${phone.image}" class="card-img-top" alt="...">
                     <div class="card-body card_title">
@@ -39,9 +49,10 @@ const phoneResult = phones => {
                     </div>
                 </div>
         `;
-        phoneResultFild.appendChild(div);
-        console.log(data);
-    });
+            phoneResultFild.appendChild(div);
+
+        });
+    }
 }
 
 //details button
@@ -63,18 +74,17 @@ const phoneDetails = phoneDetails => {
     const detailsPhone = document.getElementById('details');
     detailsPhone.textContent = '';
     const div = document.createElement('div');
-    div.classList.add('card');
-
+    div.classList.add('col');
     div.innerHTML = `
-    
+    <div class="card ">
                     <div class="modal-header">
-                        <img src="${phoneDetails.image}" class="card-img-top" alt="...">
+                        <img src="${phoneDetails.image}" class="card-img card-img-top" alt="...">
                         
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Brand: ${phoneDetails.brand} </h5>
                         <h5  class="card-title">Name: ${phoneDetails.name}</h5>
-                        <h5 class="card-title">releaseDate: ${phoneDetails.releaseDate}</h5>
+                        <h5 class="card-title">Release Date: ${phoneDetails?.releaseDate !== "" ? phoneDetails.releaseDate : "No releaseDate"}</h5>
                         <h5  class="card-title">Main Features: 
                         <ul>
                         <li><p>ChipSet: ${phoneDetails.mainFeatures.chipSet}</p></li>
@@ -97,8 +107,10 @@ const phoneDetails = phoneDetails => {
                        
 
                     </div>
+                    </div>
                 
     `;
     detailsPhone.appendChild(div);
+    detailsPhone.scrollIntoView();
 }
 

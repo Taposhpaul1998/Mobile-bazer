@@ -17,18 +17,37 @@ input#search-fild {
 button#button-addon2 {
     padding: 15px 25px;
 }
-/* phone details */
-.phone_details {
-    width: 390px;
-    background: #f7c6c60a;
+/* error massage */
+.error_hendel{
+display: none;
 }
-
+.error_hendel h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+.error_massage {
+    display: none;
+}
+.error_massage h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
 /* phone result */
 .card {
     background-color: #2e2e2e14;
     box-shadow: 1px 6px 14px #00000073;
 }
+/* phone details */
+.phone_details {
+    width: 400px;
+    background: #f7c6c60a;
+}
 
+img.card-img {
+    width: 315px;
+}
 /* phone details  */
 ul li p {
     font-size: 15px;
